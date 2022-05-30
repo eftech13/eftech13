@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "xxxxxx",
+  "private_key_id": "xxxxxxxxxxxxx",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCz0ESucKS6W4ec\nOZLE+5oY3SITPbCLJtEMFV50q3SdQr4mSw0kJPiU7cACqGgfCgd/yRosx5qVTmEB\nbjcQ6dC+3QIWQxWUZmJEPH467p5a47Nby1IAA+MJKLxIHZ6/KNydV+yLBw/hKsqR\nDgw9lfVzLQjl3g383Zv8xchOB8gPWO4A4KvxGThBAWm+PhPHgAZdwtorh/KcLl7d\npX57Jk1PAi4Io3GNhToqpN0cm2gDN2QHqM/8zMq0J33QUDN7fldAKZIvrIECvOm4\nPBMUG3K4o5qzwvX7E0GsKZL9VZQseR1WxnwsUJOULbcRSSdttXKW2uDb/fAFlEKU\ng6BY5jJNAgMBAAECggEAUJfikMUQMC7iI1VywTN8J/TFVxZpUJU/UUkqouROSkYl\n8AfnhfHEMQw26XoN4QufvNioELYORSlyNS/vIneKBmIMk2nR/Ee/d5IdidB1zYsN\nUvFYeYVEd1B4w2HzSv7HkwZbkRzDM0r4q/c96USTVOI0gML8RgAV8D+9vaujMa0L\nNhGU0/O1jcBQ54g74FhclcP83w2Gfj2dzR2rJ/GnNuRTp2RGITUtmz6ggWqu/HwI\nVlqnJ9ykfO7ierbA6O7jdm0fd7CIztMD40yzCU2Km/ZRyilFk3zCrcr13g9FrSDp\nlIWCbCgkrWdBR6Wi08As8p8uNTuEU9MjqGFmmm8BCQKBgQDqqVA3VX/I63FSmKwh\nPzkp6gBCot4UCc8J0S4RaaSYCOzl6ekTAPHx2p3ObJF0M/iGDhJr69vYafSLBpqZ\n0V+SmQdjwTfbHyCHSEwya4BzgdEFFWOeS1dZPWxdSJd5lVXgox25fcCX5MCl3EBD\nZZxbJ/ndjgDjAw7lB3Ia+8ybVwKBgQDEKia3Cf+rG5K3eQRQMrn2mL4N8mAXMAvx\n5feos3rq5vyqTs03Ow85CjeEGSsnW8KrII2cOO2hsgmJ9xHlu8LxBOdjvnGTb5iG\ntQajg0gvmu9CdEBahWAQ2UtOInCBkMmw6kJU0jPfrbfsvCWlkQW4ZU79ywTdDBPU\nFPJLaLq8+wKBgCEdA1TLm9yeXL9rC98lLMvdWWwNz4jEWZLpEbcjUTajC8rl1x33\nZCzczKf0ahIbw1YnZjIUdlFzoi58IBTUlsf5EDHjch5Zph1w9k+nG9kw2G3/Nq9/\nsjPFlyUSuU1O5W9tlSQ3upW0kfrVubvI+udiHMBG6ZkfNVrcUh28qoLBAoGAeMTq\nqO4C9bk4DrT2rtlMHEHVYIjEGAKAmCDY5If7OPuUutVhCovVx2w+2ZkVNFoN84VL\nKc7yngYaUVJHNoTuc6xtOL9a9UZTRTvWJn0AyC4+907S/+f1SOo+rpANa/dT9ROE\nWuw++4rcHWeIVfJ+7xOQGjgPenehDYUH1t1XelkCgYBFFfEDoKZvZZtWTXS9jUMX\nHHkJjasAtcE8uH6xKLkZDBsrZ+Ljg3xqS2+fklGVWN+/jU4i+z674QQdqrwrEzSN\nYHg1olGMkFs1Yvpm2Lsxt11EQsURe1seFux1Drrya5JAM/eb2WJRKpmqbc8nvg27\npeH04Adt3DHTcjmfBc9W/Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "xxxxxxxxxxxxxxxxxxxxxxxxxxm",
+  "client_id": "xxxxxxxxxxxxxxxxxxxxxx",
+  "auth_uri": "xxxxxxxxxxxxxxxxxxxxxx",
+  "token_uri": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "auth_provider_x509_cert_url": "xxxxxxxxxxxxxxxxxxxxxxxxx",
+  "client_x509_cert_url": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}
