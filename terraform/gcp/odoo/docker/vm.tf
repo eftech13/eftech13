@@ -34,9 +34,9 @@ resource "google_compute_instance" "vm" {
   #metadata_startup_script = data.template_file.nginx.rendered
   metadata_startup_script = <<-EOF
   sudo bash -c 'echo "*****    Installing Nginx    *****" > 1.txt'
-  sudo bash -c 'wget https://raw.githubusercontent.com/eftech13/eftech13/main/script/installodoo.sh > 2.txt'
-  sudo bash -c 'chmod 755 installodoo.sh > 3.txt'
-  sudo bash -c './installodoo.sh > 4.txt' 
+  sudo bash -c 'wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/docker/gcpinstallodoo.sh > 2.txt'
+  sudo bash -c 'chmod 755 gcpinstallodoo.sh > 3.txt'
+  sudo bash -c './gcpinstallodoo.sh > 4.txt' 
   sudo bash -c 'Done > 5.txt'
   EOF
   
