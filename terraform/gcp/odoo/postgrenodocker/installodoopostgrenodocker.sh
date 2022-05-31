@@ -21,22 +21,23 @@ sudo systemctl enable docker
 sudo systemctl restart docker
 #sudo docker run -d -v odoo-db:/var/lib/postgresql/data -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:13
 sudo apt install postgresql postgresql-contrib -y
+
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
-sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'pgpoc';"
 
-sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/postgrenodocker/docker-compose.yml
-sudo docker-compose up -d
-
-
-sudo docker run -v odoo-data:/var/lib/odoo -d -p 8069:8069 --name odoo --link db:db -t odoo
-
-
+sudo -u postgres psql -c "CREATE USER tes WITH PASSWORD 'tes';
 
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
 sudo docker cp odoo.conf odoo:/etc/odoo
+sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/postgrenodocker/docker-compose.yml
+sudo sed -i "s/\<localhost\>/$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip)/" docker-compose.yml
 
-sudo docker restart odoo
+sudo apt install docker-compose -y
+sudo docker-compose up -d
+
+
+#sudo docker run -v odoo-data:/var/lib/odoo -d -p 8069:8069 --name odoo --link db:db -t odoo
+#sudo docker restart odoo
 
 sudo mkdir -p /opt/container_webservice/logs
 sudo mkdir -p /opt/container_webservice/config
