@@ -30,7 +30,7 @@ sudo systemctl restart postgresql
 
 
 sudo -u postgres psql -c "CREATE USER tes WITH PASSWORD 'tes'";
-
+sudo -u postgres psql -c "ALTER USER tes WITH SUPERUSER";
 sudo mkdir /etc/odoo
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
 sudo cp odoo.conf /etc/odoo
