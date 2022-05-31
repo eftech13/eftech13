@@ -12,17 +12,7 @@ services:
       - ./addons:/mnt/extra-addons
     environment:
     - HOST=localhost
-    - USER=postgres
-    - PASSWORD=pgpoc
-  mydb:
-    image: postgres:13
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD_FILE=odoo
-      - POSTGRES_USER=odoo
-      - PGDATA=/var/lib/postgresql/data/pgdata
-    volumes:
-      - odoo-db-data:/var/lib/postgresql/data/pgdata
+    - USER=tes
+    - PASSWORD=tes
 volumes:
   odoo-web-data:
-  odoo-db-data:
