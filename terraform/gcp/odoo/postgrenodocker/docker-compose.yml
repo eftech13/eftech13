@@ -1,6 +1,7 @@
 version: '3.1'
 services:
   web:
+    container_name : odoo
     image: odoo:latest
     ports:
       - "8069:8069"
