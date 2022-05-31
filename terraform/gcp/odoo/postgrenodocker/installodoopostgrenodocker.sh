@@ -20,7 +20,7 @@ sudo usermod -a -G docker $USER
 sudo systemctl enable docker
 sudo systemctl restart docker
 #sudo docker run -d -v odoo-db:/var/lib/postgresql/data -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:13
-sudo apt install postgresql postgresql-contrib
+sudo apt install postgresql postgresql-contrib -y
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'pgpoc';"
