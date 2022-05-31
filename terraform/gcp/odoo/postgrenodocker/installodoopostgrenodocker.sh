@@ -34,7 +34,7 @@ sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp
 sudo sed -i "s/\<localhost\>/$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip)/" docker-compose.yml
 
 sudo apt install docker-compose -y
-sudo docker-compose up
+sudo docker-compose up -d
 
 
 #sudo docker run -v odoo-data:/var/lib/odoo -d -p 8069:8069 --name odoo --link db:db -t odoo
