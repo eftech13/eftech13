@@ -19,12 +19,23 @@ sudo apt-get install docker-ce -y
 sudo usermod -a -G docker $USER
 sudo systemctl enable docker
 sudo systemctl restart docker
-sudo docker run -d -v odoo-db:/var/lib/postgresql/data -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:13
+
+
+
+
+#sudo docker run -d -v odoo-db:/var/lib/postgresql/data -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:13
+sudo apt install postgresql postgresql-contrib
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'pgpoc';"
+
+sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
+sudo docker-compose up -d
+
+
 sudo docker run -v odoo-data:/var/lib/odoo -d -p 8069:8069 --name odoo --link db:db -t odoo
 
-#sudo docker cp odoo:/etc/odoo/odoo.conf .
-#sudo sed -i "s/\<workers = 0\>/workers = 5/" odoo.conf
-#sudo docker cp odoo.conf odoo:/etc/odoo
+
 
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
 sudo docker cp odoo.conf odoo:/etc/odoo
