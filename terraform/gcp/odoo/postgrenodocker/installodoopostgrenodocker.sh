@@ -28,7 +28,7 @@ sudo systemctl enable postgresql
 sudo -u postgres psql -c "CREATE USER tes WITH PASSWORD 'tes'";
 
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
-sudo docker cp odoo.conf /etc/odoo
+sudo cp odoo.conf /etc/odoo
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/postgrenodocker/docker-compose.yml
 sudo sed -i "s/\<localhost\>/$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip)/" docker-compose.yml
 
