@@ -29,7 +29,7 @@ sudo systemctl start postgresql
 sudo systemctl enable postgresql
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'pgpoc';"
 
-sudo https://github.com/eftech13/eftech13/blob/main/terraform/gcp/odoo/postgrenodocker/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/postgrenodocker/docker-compose.yml
 sudo docker-compose up -d
 
 
