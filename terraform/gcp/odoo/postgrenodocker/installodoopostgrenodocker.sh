@@ -25,7 +25,7 @@ sudo apt install postgresql postgresql-contrib -y
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
 
-sudo -u postgres psql -c "CREATE USER tes WITH PASSWORD 'tes';
+sudo -u postgres psql -c "CREATE USER tes WITH PASSWORD 'tes'";
 
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
 sudo docker cp odoo.conf odoo:/etc/odoo
