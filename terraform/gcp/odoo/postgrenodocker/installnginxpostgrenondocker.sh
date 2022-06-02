@@ -50,7 +50,7 @@ sudo cp key.pem /etc/nginx/conf.d
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/nginxnondocker.conf
 sudo sed -i "s/\<XXX.XXX.XXX.XXX\>/$(sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' odoo)/" nginxnondocker.conf
 sudo sed -i "s/\<YYYY.YYYY.YYYY.YYYY\>/$(dig +short myip.opendns.com @resolver1.opendns.com)/" nginxnondocker.conf
-
+sudo sed -i "s/proxy_redirect off/#proxy_redirect off/g" nginxnondocker.conf
 
 sudo cp nginxnondocker.conf /etc/nginx/conf.d
 sudo systemctl restart nginx
