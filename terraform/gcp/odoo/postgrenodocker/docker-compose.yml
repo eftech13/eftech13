@@ -10,8 +10,9 @@ services:
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
     environment:
-    - HOST=localhost
-    - USER=tes
-    - PASSWORD=tes
+    - POSTGRES_PASSWORD=tes
+    - POSTGRES_USER=tes
+    - DB_PORT_5432_TCP_ADDR=localhost
+    - DB_PORT_5432_TCP_PORT=5432
 volumes:
   odoo-web-data:
