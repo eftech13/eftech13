@@ -213,14 +213,12 @@ action_ = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol
 
 # ban & send an e-mail with whois report to the destemail.
 action_mw = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
-            %(mta)s-whois[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", protocol="%(protocol)s", chain="%(chain)
-s"]
+            %(mta)s-whois[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", protocol="%(protocol)s", chain="%(chain)s"]
 
 # ban & send an e-mail with whois report and relevant log lines
 # to the destemail.
 action_mwl = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
-             %(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath="%(logpath)s", chain="%(c
-hain)s"]
+             %(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath="%(logpath)s", chain="%(chain)s"]
 
 # See the IMPORTANT note in action.d/xarf-login-attack for when to use this action
 #
@@ -232,8 +230,7 @@ action_xarf = %(banaction)s[name=%(__name__)s, port="%(port)s", protocol="%(prot
 # ban IP on CloudFlare & send an e-mail with whois report and relevant log lines
 # to the destemail.
 action_cf_mwl = cloudflare[cfuser="%(cfemail)s", cftoken="%(cfapikey)s"]
-                %(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath="%(logpath)s", chain="
-%(chain)s"]
+                %(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath="%(logpath)s", chain="%(chain)s"]
 
 # Report block via blocklist.de fail2ban reporting service API
 #
@@ -243,8 +240,7 @@ action_cf_mwl = cloudflare[cfuser="%(cfemail)s", cftoken="%(cfapikey)s"]
 # in your `jail.local` globally (section [DEFAULT]) or per specific jail section (resp. in
 # corresponding jail.d/my-jail.local file).
 #
-action_blocklist_de  = blocklist_de[email="%(sender)s", service=%(filter)s, apikey="%(blocklist_de_apikey)s", agent="%(fail2ban_
-agent)s"]
+action_blocklist_de  = blocklist_de[email="%(sender)s", service=%(filter)s, apikey="%(blocklist_de_apikey)s", agent="%(fail2ban_agent)s"]
 
 # Report ban via badips.com, and use as blacklist
 #
@@ -869,8 +865,7 @@ logpath = /opt/cstrike/logs/L[0-9]*.log
 tcpport = 27030,27031,27032,27033,27034,27035,27036,27037,27038,27039
 udpport = 1200,27000,27001,27002,27003,27004,27005,27006,27007,27008,27009,27010,27011,27012,27013,27014,27015
 action  = %(banaction)s[name=%(__name__)s-tcp, port="%(tcpport)s", protocol="tcp", chain="%(chain)s", actname=%(banaction)s-tcp]
-           %(banaction)s[name=%(__name__)s-udp, port="%(udpport)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp
-]
+           %(banaction)s[name=%(__name__)s-udp, port="%(udpport)s", protocol="udp", chain="%(chain)s", actname=%(banaction)s-udp]
 
 [bitwarden]
 port    = http,https
