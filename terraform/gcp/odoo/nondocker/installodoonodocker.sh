@@ -70,12 +70,12 @@ sudo cp cert.pem /etc/nginx/conf.d
 sudo cp key.pem /etc/nginx/conf.d
 
 
-sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/nondocker/odoo.conf
+sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/nondocker/nginx.conf
 #sudo sed -i "s/\<XXX.XXX.XXX.XXX\>/$(sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' odoo)/" odoo.conf
-sudo sed -i "s/\<YYYY.YYYY.YYYY.YYYY\>/$(dig +short myip.opendns.com @resolver1.opendns.com)/" odoo.conf
-sudo sed -i "s/proxy_redirect off/#proxy_redirect off/g" odoo.conf
+sudo sed -i "s/\<YYYY.YYYY.YYYY.YYYY\>/$(dig +short myip.opendns.com @resolver1.opendns.com)/" nginx.conf
+sudo sed -i "s/proxy_redirect off/#proxy_redirect off/g" nginx.conf
 
-sudo cp odoo.conf /etc/nginx/conf.d
+sudo cp nginx.conf /etc/nginx/conf.d
 sudo systemctl restart nginx
 
 
