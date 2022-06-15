@@ -33,9 +33,9 @@ sudo cp odoo.conf /etc/odoo
 
 sudo apt-get install python3-pip python-dev python3-dev libxml2-dev libpq-dev libjpeg8-dev liblcms2-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev build-essential git libssl-dev libffi-dev libmysqlclient-dev libjpeg-dev libblas-dev libatlas-base-dev -y
 
-sudo apt-get install npm
+sudo apt-get install npm -y
 sudo npm install -g less less-plugin-clean-css
-sudo apt-get install node-less
+sudo apt-get install node-less -y
 
 sudo wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.bionic_amd64.deb
 sudo dpkg -i wkhtmltox_0.12.6-1.bionic_amd64.deb
