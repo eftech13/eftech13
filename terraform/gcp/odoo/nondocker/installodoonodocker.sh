@@ -48,8 +48,10 @@ sudo pip3 install -r /opt/odoo15/odoo/requirements.txt
 sudo chown odoo15: /etc/odoo.conf
 sudo mkdir /var/log/odoo
 sudo chown odoo15:root /var/log/odoo
-nano /etc/systemd/system/odoo15.service
 
+
+sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/nondocker/odoo.service
+sudo cp odoo.service /etc/systemd/system/odoo15.service
 sudo systemctl daemon-reload
 sudo systemctl start odoo15
 sudo systemctl enable odoo15
