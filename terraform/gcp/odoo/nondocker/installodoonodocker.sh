@@ -25,8 +25,8 @@ sudo systemctl enable postgresql
 #sudo systemctl restart postgresql
 
 
-sudo -u postgres psql -c "CREATE USER postgres WITH PASSWORD 'odoo15'";
-sudo -u postgres psql -c "ALTER USER postgres WITH SUPERUSER";
+sudo -u postgres psql -c "CREATE USER odoo15 WITH PASSWORD 'odoo15'";
+sudo -u postgres psql -c "ALTER USER odoo15 WITH SUPERUSER";
 sudo mkdir /etc/odoo
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/nondocker/odoo.conf
 sudo cp odoo.conf /etc/odoo
