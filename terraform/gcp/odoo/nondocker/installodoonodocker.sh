@@ -15,11 +15,7 @@ sudo add-apt-repository \
 $(lsb_release -cs) \
 stable"
 sudo apt-get update
-sudo apt-get install docker-ce -y
-sudo usermod -a -G docker $USER
-sudo systemctl enable docker
-sudo systemctl restart docker
-#sudo docker run -d -v odoo-db:/var/lib/postgresql/data -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:13
+
 sudo apt install postgresql postgresql-contrib -y
 
 sudo systemctl start postgresql
@@ -34,11 +30,30 @@ sudo -u postgres psql -c "ALTER USER tes WITH SUPERUSER";
 sudo mkdir /etc/odoo
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
 sudo cp odoo.conf /etc/odoo
-sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/postgrenodocker/docker-compose.yml
-sudo sed -i "s/\<localhost\>/$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/network-interfaces/0/ip)/" docker-compose.yml
 
-sudo apt install docker-compose -y
-sudo docker-compose up -d
+sudo apt-get install python3-pip python-dev python3-dev libxml2-dev libpq-dev libjpeg8-dev liblcms2-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev build-essential git libssl-dev libffi-dev libmysqlclient-dev libjpeg-dev libblas-dev libatlas-base-dev -y
+
+sudo apt-get install npm
+sudo npm install -g less less-plugin-clean-css
+sudo apt-get install node-less
+
+sudo wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.bionic_amd64.deb
+sudo dpkg -i wkhtmltox_0.12.6-1.bionic_amd64.deb
+sudo apt-get install -f
+
+useradd -m -d /opt/odoo15 -U -r -s /bin/bash odoo15
+#sudo su - odoo15
+sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /opt/odoo15/odoo
+sudo pip3 install -r /opt/odoo15/odoo/requirements.txt
+sudo chown odoo15: /etc/odoo.conf
+sudo mkdir /var/log/odoo
+sudo chown odoo15:root /var/log/odoo
+nano /etc/systemd/system/odoo15.service
+
+sudo systemctl daemon-reload
+sudo systemctl start odoo15
+sudo systemctl enable odoo15
+
 
 sudo apt-get install nginx -y
 
