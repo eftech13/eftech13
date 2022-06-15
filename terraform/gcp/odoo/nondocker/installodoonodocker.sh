@@ -20,13 +20,13 @@ sudo apt install postgresql postgresql-contrib -y
 
 sudo systemctl start postgresql
 sudo systemctl enable postgresql
-sudo bash -c "echo 'host    all             all             0.0.0.0/0               md5' >> /etc/postgresql/12/main/pg_hba.conf"
-sudo sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" /etc/postgresql/12/main/postgresql.conf
-sudo systemctl restart postgresql
+#sudo bash -c "echo 'host    all             all             0.0.0.0/0               md5' >> /etc/postgresql/12/main/pg_hba.conf"
+#sudo sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" /etc/postgresql/12/main/postgresql.conf
+#sudo systemctl restart postgresql
 
 
-sudo -u postgres psql -c "CREATE USER tes WITH PASSWORD 'tes'";
-sudo -u postgres psql -c "ALTER USER tes WITH SUPERUSER";
+sudo -u postgres psql -c "CREATE USER postgres WITH PASSWORD 'odoo15'";
+sudo -u postgres psql -c "ALTER USER postgres WITH SUPERUSER";
 sudo mkdir /etc/odoo
 sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
 sudo cp odoo.conf /etc/odoo
