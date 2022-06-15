@@ -28,13 +28,13 @@ sudo systemctl enable postgresql
 sudo -u postgres psql -c "CREATE USER postgres WITH PASSWORD 'odoo15'";
 sudo -u postgres psql -c "ALTER USER postgres WITH SUPERUSER";
 sudo mkdir /etc/odoo
-sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/odoo.conf
+sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/nondocker/odoo.conf
 sudo cp odoo.conf /etc/odoo
 
 sudo apt-get install python3-pip python-dev python3-dev libxml2-dev libpq-dev libjpeg8-dev liblcms2-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev build-essential git libssl-dev libffi-dev libmysqlclient-dev libjpeg-dev libblas-dev libatlas-base-dev -y
 
 sudo apt-get install npm -y
-sudo npm install -g less less-plugin-clean-css -y
+sudo npm install -g less less-plugin-clean-css
 sudo apt-get install node-less -y
 
 
@@ -44,14 +44,14 @@ sudo apt-get install xfonts-base -y
 sudo apt-get install xfonts-75dpi -y
 
 sudo wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.bionic_amd64.deb
-sudo dpkg -i wkhtmltox_0.12.6-1.bionic_amd64.deb -y
+sudo dpkg -i wkhtmltox_0.12.6-1.bionic_amd64.deb
 sudo apt-get install -f -y
 
 useradd -m -d /opt/odoo15 -U -r -s /bin/bash odoo15
 #sudo su - odoo15
 sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 15.0 /opt/odoo15/odoo
 sudo pip3 install -r /opt/odoo15/odoo/requirements.txt
-sudo chown odoo15: /etc/odoo.conf
+sudo chown odoo15: /etc/odoo/odoo.conf
 sudo mkdir /var/log/odoo
 sudo chown odoo15:root /var/log/odoo
 
@@ -70,12 +70,12 @@ sudo cp cert.pem /etc/nginx/conf.d
 sudo cp key.pem /etc/nginx/conf.d
 
 
-sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/nginxnondocker.conf
-sudo sed -i "s/\<XXX.XXX.XXX.XXX\>/$(sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' odoo)/" nginxnondocker.conf
-sudo sed -i "s/\<YYYY.YYYY.YYYY.YYYY\>/$(dig +short myip.opendns.com @resolver1.opendns.com)/" nginxnondocker.conf
-sudo sed -i "s/proxy_redirect off/#proxy_redirect off/g" nginxnondocker.conf
+sudo wget https://raw.githubusercontent.com/eftech13/eftech13/main/terraform/gcp/odoo/nondocker/odoo.conf
+#sudo sed -i "s/\<XXX.XXX.XXX.XXX\>/$(sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' odoo)/" odoo.conf
+sudo sed -i "s/\<YYYY.YYYY.YYYY.YYYY\>/$(dig +short myip.opendns.com @resolver1.opendns.com)/" odoo.conf
+sudo sed -i "s/proxy_redirect off/#proxy_redirect off/g" odoo.conf
 
-sudo cp nginxnondocker.conf /etc/nginx/conf.d
+sudo cp odoo.conf /etc/nginx/conf.d
 sudo systemctl restart nginx
 
 
